@@ -23,8 +23,8 @@ init([ServerOpts, ChatterboxOpts, TransportOpts]) ->
                                           {certfile, CertFile},
                                           {honor_cipher_order, false},
                                           {cacertfile, CACertFile},
-                                          {fail_if_no_peer_cert, maps:get(TransportOpts,fail_if_no_peer_cert,true)},
-                                          {verify, maps:get(TransportOpts,verify,verify_peer)},
+                                          {fail_if_no_peer_cert, maps:get(fail_if_no_peer_cert,TransportOpts,true)},
+                                          {verify, maps:get(verify,TransportOpts,verify_peer)},
                                           {versions, ['tlsv1.2']},
                                           {next_protocols_advertised, [<<"h2">>]}]};
                                _ ->
